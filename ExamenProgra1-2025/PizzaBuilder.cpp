@@ -11,9 +11,9 @@ void PizzaBuilder::BuildPizza() {
     SelectTomatoes();
 
     // TODO
-    //SelectCheese();
-    //SelectHerbs();
-    //SelectMeats();
+    SelectCheese();
+   // SelectHerb();
+   // SelectMeat();
 }
 
 void PizzaBuilder::DisplayFinalPizza() const {
@@ -35,6 +35,7 @@ void PizzaBuilder::SelectTomatoes() {
     // TODO: Reusar esta linea, pero con su propio Repositorio.
     IngredientSelector<TomatoesRepository> selector(tomatoRepo_, availableTomatoes_, "tomato");
 
+
     while (true) {
         selector.DisplayAvailableIngredients();
 
@@ -53,9 +54,29 @@ void PizzaBuilder::SelectTomatoes() {
 // TODO:  Crear cada uno su parte. ☝️ toma el ejemplo de  SelectTomatoes y crea tu propia implementación.
 
 
-//void PizzaBuilder::SelectCheese() {
+void PizzaBuilder::SelectCheese() {
+
+    std::cout << "\n--- Selecting Cheese ---" << std::endl;
+
+    IngredientSelector<CheeseRepository> selector(cheeseRepo_, availableCheeses_, "cheese");
+
+
+
+    while (true) {
+        selector.DisplayAvailableIngredients();
+
+        std::cout << "\nEnter Cheese type (or 'done' to finish): ";
+        std::string userChoice;
+        std::getline(std::cin, userChoice);
+
+        if (userChoice == "done" || userChoice == "DONE") {
+            break;
+        }
+
+        selector.AddIngredientToPizza(userChoice, selectedIngredients_);
+    }
 // // Resolver.    
-//}
+}
 //
 //void PizzaBuilder::SelectHerb() {
 //    // Resolver.    

@@ -10,7 +10,7 @@ public:
 
     int GetAvailableQuantity(const std::string& cheeseType) const;
     void UpdateQuantity(const std::string& cheeseType, int newQuantity);
-
+    
 private:
     mutable std::unordered_map<std::string, std::vector<std::string>> data_;
 };

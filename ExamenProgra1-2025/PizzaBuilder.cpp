@@ -11,9 +11,9 @@ void PizzaBuilder::BuildPizza() {
     SelectTomatoes();
 
     // TODO
-    SelectCheese();
+    //SelectCheese();
    // SelectHerb();
-   // SelectMeat();
+   Selectmeat();
 }
 
 void PizzaBuilder::DisplayFinalPizza() const {
@@ -54,18 +54,18 @@ void PizzaBuilder::SelectTomatoes() {
 // TODO:  Crear cada uno su parte. ☝️ toma el ejemplo de  SelectTomatoes y crea tu propia implementación.
 
 
-void PizzaBuilder::SelectCheese() {
+/*/void PizzaBuilder::Selectmeat() {
 
     std::cout << "\n--- Selecting Cheese ---" << std::endl;
 
-    IngredientSelector<CheeseRepository> selector(cheeseRepo_, availableCheeses_, "cheese");
+    IngredientSelector<CheeseRepository> selector(meatRepo_, availablemeat_, "meat");
 
 
 
     while (true) {
         selector.DisplayAvailableIngredients();
 
-        std::cout << "\nEnter Cheese type (or 'done' to finish): ";
+        std::cout << "\nEnter meat type (or 'done' to finish): ";
         std::string userChoice;
         std::getline(std::cin, userChoice);
 
@@ -74,14 +74,27 @@ void PizzaBuilder::SelectCheese() {
         }
 
         selector.AddIngredientToPizza(userChoice, selectedIngredients_);
-    }
+   */ 
 // // Resolver.    
-}
+
 //
 //void PizzaBuilder::SelectHerb() {
 //    // Resolver.    
 //}
 //
-//void PizzaBuilder::SelectMeat() {
+void PizzaBuilder::Selectmeat() {
+    std::cout << "\n--- Selecting Meat ---" << std::endl;
+    IngredientSelector<meatRepository> selector(meatRepo_, availablemeat_, "meat");
+    while (true) {
+        selector.DisplayAvailableIngredients();
+        std::cout << "\nEnter meat type (or 'done' to finish): ";
+        std::string userChoice;
+        std::getline(std::cin, userChoice);
+        if (userChoice == "done" || userChoice == "DONE") {
+            break;
+        }
+        selector.AddIngredientToPizza(userChoice, selectedIngredients_);
+    }
+}
 //    // Resolver.    
 //}

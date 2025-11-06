@@ -3,6 +3,7 @@
 #include <string>
 #include "TomatoesRepository.h"
 #include "IngredientSelector.h"
+#include "CheeseRepository.h"
 
 class PizzaBuilder {
 public:
@@ -14,10 +15,11 @@ public:
 private:
     void SelectTomatoes();
     void SelectCheese();
-    void SelectHerb();
-    void SelectMeat();
+  //  void SelectHerb();
+   // void SelectMeat();
 
     TomatoesRepository tomatoRepo_;
+	CheeseRepository cheeseRepo_;
     std::vector<std::string> selectedIngredients_;
 
     const std::vector<std::string> availableTomatoes_ = {"Cherry", "Roma", "Beefsteak", "Heirloom", "Grape"};
